@@ -1,0 +1,54 @@
+[gd_scene load_steps=8 format=3 uid="uid://cpd8ovqin2g78"]
+
+[ext_resource type="Texture2D" uid="uid://hhhs8hmpnns5" path="res://Assets/characters/DinoSprites - tard.png" id="1_1qure"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_reo8a"]
+atlas = ExtResource("1_1qure")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pv5mn"]
+atlas = ExtResource("1_1qure")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_04kde"]
+atlas = ExtResource("1_1qure")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fe61s"]
+atlas = ExtResource("1_1qure")
+region = Rect2(72, 0, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7l1c7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_reo8a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pv5mn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_04kde")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fe61s")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6f21r"]
+radius = 4.0
+height = 12.0
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_7l1c7")
+autoplay = "default"
+frame_progress = 0.83463496
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("CapsuleShape2D_6f21r")
