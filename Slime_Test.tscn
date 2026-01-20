@@ -1,0 +1,61 @@
+[gd_scene load_steps=9 format=3 uid="uid://bwixv5fmhlj7c"]
+
+[ext_resource type="Texture2D" uid="uid://c4nr4qsx1yeom" path="res://Assets/enemies/Green Slime Spritesheet.png" id="1_weh7e"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tsq00"]
+atlas = ExtResource("1_weh7e")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_37548"]
+atlas = ExtResource("1_weh7e")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a4nps"]
+atlas = ExtResource("1_weh7e")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pche0"]
+atlas = ExtResource("1_weh7e")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_le3jw"]
+atlas = ExtResource("1_weh7e")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hio68"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tsq00")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_37548")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a4nps")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pche0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_le3jw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_weh7e"]
+radius = 5.0
+height = 10.0
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_hio68")
+autoplay = "default"
+frame_progress = 0.53598547
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3)
+shape = SubResource("CapsuleShape2D_weh7e")
