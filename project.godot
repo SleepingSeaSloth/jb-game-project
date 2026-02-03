@@ -8,12 +8,32 @@
 
 config_version=5
 
+[animation]
+
+compatibility/default_parent_skeleton_in_mesh_instance_3d=true
+
 [application]
 
 config/name="JB-GameProject"
-run/main_scene="uid://dy00ngysaq5mh"
-config/features=PackedStringArray("4.5", "Forward Plus")
+run/main_scene="uid://dj3ut8a0eh0dy"
+config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
+
+[audio]
+
+buses/default_bus_layout="uid://b6ybwp4bkrfu"
+
+[autoload]
+
+BracMusic="*uid://u0iv8plf21li"
+
+[debug]
+
+gdscript/warnings/untyped_declaration=2
+gdscript/warnings/unsafe_property_access=2
+gdscript/warnings/unsafe_method_access=2
+gdscript/warnings/unsafe_cast=1
+gdscript/warnings/unsafe_call_argument=2
 
 [input]
 

@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://u0iv8plf21li"]
+
+[ext_resource type="AudioStream" uid="uid://dakv07tgpggtp" path="res://brackeys_platformer_assets/music/time_for_adventure.mp3" id="1_me6xt"]
+
+[node name="Music" type="AudioStreamPlayer2D" unique_id=2095189175]
+stream = ExtResource("1_me6xt")
+autoplay = true
+bus = &"Music"
