@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dil5f2ctonh3q" path="res://slime_test.gd" id="1_37548"]
 [ext_resource type="Texture2D" uid="uid://c4nr4qsx1yeom" path="res://Assets/enemies/Green Slime Spritesheet.png" id="1_weh7e"]
 [ext_resource type="PackedScene" uid="uid://bdvcucp2epao2" path="res://kill_zone.tscn" id="2_tsq00"]
+[ext_resource type="PackedScene" uid="uid://cu6rg2l4j475y" path="res://stomp_hitbox.tscn" id="4_a4nps"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tsq00"]
 atlas = ExtResource("1_weh7e")
@@ -47,10 +48,14 @@ animations = [{
 "speed": 6.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_37548"]
-radius = 6.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a4nps"]
+radius = 4.999793
+height = 15.999337
 
-[node name="Slime" type="Node2D" unique_id=1559635355]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pche0"]
+size = Vector2(11, 2)
+
+[node name="Slime" type="Node2D" unique_id=32389435]
 script = ExtResource("1_37548")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1113174960]
@@ -61,8 +66,9 @@ frame_progress = 0.53598547
 [node name="KillZone" parent="." unique_id=260252349 instance=ExtResource("2_tsq00")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KillZone" unique_id=1906497820]
-position = Vector2(0, 2)
-shape = SubResource("CircleShape2D_37548")
+position = Vector2(0, 3)
+rotation = 1.5616946
+shape = SubResource("CapsuleShape2D_a4nps")
 
 [node name="RayCastR" type="RayCast2D" parent="." unique_id=1528892093]
 target_position = Vector2(16, 0)
@@ -71,3 +77,9 @@ collision_mask = 129
 [node name="RayCastL" type="RayCast2D" parent="." unique_id=1508238753]
 target_position = Vector2(-16, 0)
 collision_mask = 129
+
+[node name="StompHitbox" parent="." unique_id=1120254473 instance=ExtResource("4_a4nps")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StompHitbox" unique_id=1230695421]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_pche0")

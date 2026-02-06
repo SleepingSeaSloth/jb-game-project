@@ -1,25 +1,29 @@
+class_name knight
+
 extends CharacterBody2D
 
 
 const SPEED : = 125.0
 const JUMP_VELOCITY : = -280.0
 
-var Jump_Count : = 0
-
+@onready var stomping_feet: Area2D = $StompingFeet
 @onready var knight_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
+
 func _physics_process(delta: float) -> void:
-	# Add the gravity.
+	set_collision_layer_value(7, true)
+	
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-		Jump_Count += 1
-	else:
-		Jump_Count = 0
+		if Input.is_action_just_pressed("Move Down"):
+			set_collision_layer_value(7, false)
 
 	# Handle jump.
-	if Input.is_action_just_pressed("Jump") and Jump_Count <= 3 :
-		Jump_Count += 1
-		velocity.y = JUMP_VELOCITY
+	if Input.is_action_just_pressed("Jump") and is_on_floor():
+		if Input.is_action_pressed("Move Down"):
+			set_collision_layer_value(7, false)
+		else:
+			velocity.y = JUMP_VELOCITY
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -45,3 +49,6 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
+
+func _ready() -> void:
+	pass

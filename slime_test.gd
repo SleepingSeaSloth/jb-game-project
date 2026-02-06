@@ -1,3 +1,4 @@
+
 extends Node2D
 
 const Speed : = 60
@@ -7,6 +8,8 @@ var Direction : = 1
 @onready var ray_cast_r: RayCast2D = $RayCastR
 @onready var ray_cast_l: RayCast2D = $RayCastL
 @onready var slime_sprite: AnimatedSprite2D = $AnimatedSprite2D
+
+
 
 
 func _process(delta: float) -> void:

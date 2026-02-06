@@ -1,0 +1,143 @@
+[gd_scene format=3 uid="uid://c84k2m3lko5qw"]
+
+[ext_resource type="Texture2D" uid="uid://b816th7el3j6i" path="res://brackeys_platformer_assets/sprites/fruit.png" id="1_lyd8r"]
+[ext_resource type="Script" uid="uid://dy8jmh45obkh6" path="res://grape.gd" id="1_yafxw"]
+[ext_resource type="AudioStream" uid="uid://bgatdy3uwscfy" path="res://brackeys_platformer_assets/sounds/power_up.wav" id="2_j46mh"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_j46mh"]
+radius = 6.0
+height = 16.0
+
+[sub_resource type="Animation" id="Animation_j46mh"]
+resource_name = "PowerAnimation"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Power!:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.8),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_yafxw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0009999999),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Power!:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.26666668),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3fcr5"]
+_data = {
+&"PowerAnimation": SubResource("Animation_j46mh"),
+&"RESET": SubResource("Animation_yafxw")
+}
+
+[node name="Grape" type="Area2D" unique_id=680538480]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("1_yafxw")
+
+[node name="AnimatedSprite2D" type="Sprite2D" parent="." unique_id=1239057789]
+texture = ExtResource("1_lyd8r")
+region_enabled = true
+region_rect = Rect2(34, 33, 11, 15)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1949212845]
+shape = SubResource("CapsuleShape2D_j46mh")
+
+[node name="Power!" type="AudioStreamPlayer2D" parent="." unique_id=41102257]
+stream = ExtResource("2_j46mh")
+bus = &"PowerUp!"
+
+[node name="GrapePower" type="AnimationPlayer" parent="." unique_id=1069171265]
+libraries/ = SubResource("AnimationLibrary_3fcr5")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

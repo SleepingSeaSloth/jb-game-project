@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://cu6rg2l4j475y"]
+
+[ext_resource type="Script" uid="uid://bc4to8hla8f0c" path="res://stomp_hitbox.gd" id="1_i3l6t"]
+
+[node name="StompHitbox" type="Area2D" unique_id=1120254473]
+script = ExtResource("1_i3l6t")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

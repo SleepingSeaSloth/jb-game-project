@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bdvcucp2epao2" path="res://kill_zone.tscn" id="10_5fjre"]
 [ext_resource type="FontFile" uid="uid://bxenqsagcssk5" path="res://Assets/fonts/PixelOperator8.ttf" id="11_oeaww"]
 [ext_resource type="Script" uid="uid://b6ih38a7xnh6g" path="res://game_manager.gd" id="12_aonjr"]
+[ext_resource type="PackedScene" uid="uid://c84k2m3lko5qw" path="res://grape.tscn" id="13_do8ha"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4mnpp"]
 texture = ExtResource("3_5ymk8")
@@ -429,24 +430,27 @@ script = ExtResource("12_aonjr")
 [node name="Hud" type="CanvasLayer" parent="GameManager" unique_id=613319972]
 
 [node name="Panel" type="Panel" parent="GameManager/Hud" unique_id=335811226]
-offset_right = 105.0
-offset_bottom = 22.0
+offset_right = 215.0
+offset_bottom = 47.0
 
 [node name="CoinCounter" type="Label" parent="GameManager/Hud/Panel" unique_id=1854103087]
 layout_mode = 0
-offset_top = 2.0
-offset_right = 76.0
-offset_bottom = 25.0
+offset_left = 2.0
+offset_top = 7.0
+offset_right = 154.0
+offset_bottom = 39.0
 theme_override_fonts/font = ExtResource("4_05as6")
+theme_override_font_sizes/font_size = 32
 text = "Coins:"
 
 [node name="CoinsEarned" type="Label" parent="GameManager/Hud/Panel" unique_id=1795978313]
 layout_mode = 0
-offset_left = 77.0
-offset_top = 2.0
-offset_right = 106.0
-offset_bottom = 25.0
+offset_left = 151.0
+offset_top = 8.0
+offset_right = 180.0
+offset_bottom = 40.0
 theme_override_fonts/font = ExtResource("11_oeaww")
+theme_override_font_sizes/font_size = 32
 text = "0"
 
 [node name="Sir_Knight" parent="." unique_id=2092372074 instance=ExtResource("1_bhu08")]
@@ -600,6 +604,45 @@ position = Vector2(709, -74)
 [node name="Coin16" parent="Coins" unique_id=841783288 instance=ExtResource("9_uhmka")]
 position = Vector2(734, -73)
 
+[node name="Coin17" parent="Coins" unique_id=1257610218 instance=ExtResource("9_uhmka")]
+position = Vector2(826, -57)
+
+[node name="Coin18" parent="Coins" unique_id=1615354071 instance=ExtResource("9_uhmka")]
+position = Vector2(845, -57)
+
+[node name="Coin19" parent="Coins" unique_id=1383775946 instance=ExtResource("9_uhmka")]
+position = Vector2(864, -57)
+
+[node name="Coin20" parent="Coins" unique_id=891506996 instance=ExtResource("9_uhmka")]
+position = Vector2(883, -57)
+
+[node name="Coin21" parent="Coins" unique_id=390604689 instance=ExtResource("9_uhmka")]
+position = Vector2(902, -56)
+
+[node name="Coin22" parent="Coins" unique_id=1333182518 instance=ExtResource("9_uhmka")]
+position = Vector2(922, -56)
+
+[node name="Coin23" parent="Coins" unique_id=308675457 instance=ExtResource("9_uhmka")]
+position = Vector2(902, -77)
+
+[node name="Coin24" parent="Coins" unique_id=1894799732 instance=ExtResource("9_uhmka")]
+position = Vector2(880, -77)
+
+[node name="Coin25" parent="Coins" unique_id=1693456972 instance=ExtResource("9_uhmka")]
+position = Vector2(859, -77)
+
+[node name="Coin26" parent="Coins" unique_id=554855440 instance=ExtResource("9_uhmka")]
+position = Vector2(837, -77)
+
+[node name="Coin27" parent="Coins" unique_id=1418720273 instance=ExtResource("9_uhmka")]
+position = Vector2(849, -96)
+
+[node name="Coin28" parent="Coins" unique_id=1275176647 instance=ExtResource("9_uhmka")]
+position = Vector2(870, -96)
+
+[node name="Coin29" parent="Coins" unique_id=1499587284 instance=ExtResource("9_uhmka")]
+position = Vector2(892, -96)
+
 [node name="KillZone" parent="." unique_id=260252349 instance=ExtResource("10_5fjre")]
 position = Vector2(15, -10)
 
@@ -619,3 +662,8 @@ position = Vector2(272, -86)
 
 [node name="Slime2" parent="Slimes" unique_id=1559635355 instance=ExtResource("5_5ymk8")]
 position = Vector2(503, 58)
+
+[node name="Node" type="Node" parent="." unique_id=1715598637]
+
+[node name="Grape" parent="Node" unique_id=680538480 instance=ExtResource("13_do8ha")]
+position = Vector2(89, -12)
