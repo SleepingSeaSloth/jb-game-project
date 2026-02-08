@@ -5,9 +5,11 @@ extends CharacterBody2D
 
 const SPEED : = 125.0
 const JUMP_VELOCITY : = -280.0
+const JUMP_BOOST : = -280.0
 
 @onready var stomping_feet: Area2D = $StompingFeet
 @onready var knight_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var grape_collision: CollisionShape2D = $GrapeCollision
 
 
 func _physics_process(delta: float) -> void:
@@ -50,5 +52,12 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 
-func _ready() -> void:
-	pass
+func _grape_power() -> void:
+	var grapeduration : = 3
+	velocity.y = JUMP_BOOST
+	
+	await get_tree().create_timer(grapeduration).timeout
+	
+	
+	
+	

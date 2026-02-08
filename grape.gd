@@ -4,4 +4,6 @@ extends Area2D
 
 
 func _on_body_entered(_body: Node2D) -> void:
-	grape_power.play("PowerAnimation")
+	if "sir_knight" in _body.name:
+		_body.grape_power()
+		grape_power.play("PowerAnimation")

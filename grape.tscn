@@ -25,7 +25,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("CollisionShape2D:disabled")
+tracks/1/path = NodePath("GrapeCollision:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -78,7 +78,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("CollisionShape2D:disabled")
+tracks/1/path = NodePath("GrapeCollision:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -130,7 +130,7 @@ texture = ExtResource("1_lyd8r")
 region_enabled = true
 region_rect = Rect2(34, 33, 11, 15)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1949212845]
+[node name="GrapeCollision" type="CollisionShape2D" parent="." unique_id=1949212845]
 shape = SubResource("CapsuleShape2D_j46mh")
 
 [node name="Power!" type="AudioStreamPlayer2D" parent="." unique_id=41102257]
